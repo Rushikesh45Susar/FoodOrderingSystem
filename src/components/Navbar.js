@@ -12,7 +12,7 @@ function Navbar() {
 
     <Link to="/" className="navbar-brand">
       <img id="nav-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlq5HBm3PMYychM_62YJmJJWksFJgcvrTaoA&usqp=CAU" alt="nav-logo" className="img-fluid d-inline-block align-baseline me-2" />
-      <span className="nav-title">Yumi</span><span className="nav-title-to">to</span>
+      <span className="nav-title">Eat-</span><span className="nav-title-to">it</span>
     </Link>
     
     </nav>

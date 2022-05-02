@@ -72,16 +72,17 @@ const myReducer= (state=initialState, action)=>{
                     case 'checkUser':
                       const pl=action.payload, u=action.user;
                       if(pl.length){
-                        const user =  pl.filter(p=> (
-                          p.mail === u.mail && p.psd===u.psd ))
+                        const user =  pl.filter(p=> (p.mail === u.mail && p.psd===u.psd ))
                           if(user.length){
-                            axios.put(`https://my-json-yumito-server.herokuapp.com/users/${user[0].id}`,{...user[0],loggedIn:true})
-                            .then(res =>{ 
-                              store.set('user',user[0]);
-                              store.set('loggedIn' ,true);
-                            } )
-                            .catch(e=>alert("Something gone wrong"))
-                            
+                            const getuser = async ()=>{
+                              const user = await fetch( `/user/${user[0].id}`).then( async (res)  =>{
+                                console.log(await res.json())
+                                store.set('user',user[0]);
+                                store.set('loggedIn' ,true);
+                              }).catch((e) =>{
+                                alert("Something gone wrong")
+                              });
+                            }
                         return {...state, loggedIn:true}          
                           }            
                         else{ 
